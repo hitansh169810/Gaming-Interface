@@ -9,14 +9,14 @@ public class GameFrame extends JFrame implements GameConstants{
 //		GameFrame frame = new GameFrame();
 //	}
 
-	public GameFrame() {
-		Board board = new Board();
+	public GameFrame(String userName) {
+		Board board = new Board(userName);
 		add(board);
 		pack();
 		setResizable(false);
 		setTitle(TITLE);
 		setLocationRelativeTo(null);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
 }

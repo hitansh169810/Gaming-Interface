@@ -17,7 +17,7 @@ public class AdminScreen extends JFrame {
 
 	public void askForClosing(){
 		if(textField.getText().length()>0){
-			int choice= JOptionPane.showConfirmDialog(this, "Do you want to Close this Window","IMS",JOptionPane.YES_NO_OPTION);
+			int choice = JOptionPane.showConfirmDialog(this, "Do you want to Close this Window","IMS",JOptionPane.YES_NO_OPTION);
 			if(choice == JOptionPane.YES_OPTION){
 				this.setVisible(false);
 				this.dispose();
