@@ -10,7 +10,7 @@ public interface GameConstants {
 	String TITLE = " - - - - - - -   Snake Game   - - - - - - - ";
 	String BACKGROUND_SOUND = "music.mp3";
 	String POP_SOUND = "sound.mp3";
-	String BACKGROUND_IMAGE = "bg.gif";
+	String BACKGROUND_IMAGE = "bg.jpg";
 	String GAME_OVER = "gameover.mp3";
 	String HEAD = "head.png";
 	String FOOD = "food.png";

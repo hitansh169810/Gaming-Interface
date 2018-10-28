@@ -22,7 +22,7 @@ public class gameManager implements KeyListener{
      private boolean start;
      
     public gameManager(){
-
+    	
     }
 
     public void init(){    
@@ -46,7 +46,7 @@ public class gameManager implements KeyListener{
          bullet.get(i).tick();
       }
   
-      long breaks = (System.nanoTime()-current)/1000000;
+      long breaks = (System.nanoTime()-current)/100000;
       if(breaks > delay){
       
         for(int i = 0; i<2 ; i++){
@@ -153,6 +153,7 @@ public class gameManager implements KeyListener{
     }
    
        else{  g.setFont(new Font("arial",Font.PLAIN,33));
+       g.setColor(Color.white);
            g.drawString("Press enter to start", 500, (SetUP.gameHeight/2)+50);
        }
        }

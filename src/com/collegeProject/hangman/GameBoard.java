@@ -1,6 +1,5 @@
 package com.collegeProject.hangman;
 
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -15,110 +14,46 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import com.collegeProject.snakeGame.Board;
-
-/**
- * Displays a Hangman game board to the screen for interaction with the player.
- * @author Jeff A.
- */
 public class GameBoard extends JFrame 
 {
-    /**
-     * The width of the GameBoard.
-     */
     private final int WIDTH;
     
-    /**
-     * The height of the GameBoard.
-     */
     private final int HEIGHT;
     
-    /**
-     * The maximum number of guesses before game over.
-     */
     private final int MAX_INCORRECT;
     
-    /**
-     * The maximum password length permitted.
-     */
     private final int MAX_PASSWORD_LENGTH;
     
-    /**
-     * The directory of the images of the hangman.
-     */
     private final String HANGMAN_IMAGE_DIRECTORY;
     
-    /**
-     * The type of the images of the hangman.
-     */
     private final String HANGMAN_IMAGE_TYPE;
     
-    /**
-     * The base (common) name of the images of the hangman (e.g. "hangman" for
-     * "hangman_0.png, hangman_1.png, ...")
-     */
     private final String HANGMAN_IMAGE_BASE_NAME;
     
-    /**
-     * The directory of the images of the letters.
-     */
     private final String LETTER_IMAGE_DIRECTORY;
     
-    /**
-     * The type of the images of the letters.
-     */
     private final String LETTER_IMAGE_TYPE;
     
-    /**
-     * The letter rack containing a the letters to be guessed.
-     */
     private LetterRack gameRack;
     
-    /**
-     * The hangman image placeholder.
-     */
     private Hangman gameHangman;
     
-    /**
-     * The number of incorrect guesses.
-     */
     private int numIncorrect;
     
-    /**
-     * Display the password hidden as *'s, revealing each letter as it is
-     * guessed
-     */
     private JLabel correct;
     
-    /**
-     * Displays the number of incorrect guesses.
-     */
     private JLabel incorrect;
     
-    /**
-     * The password to be guessed by the player.
-     */
     private String password;
     
-    /**
-     * StringBuilder used to hide the password, revealing letters as they are
-     * guessed by the player.
-     */
     private StringBuilder passwordHidden;
     
-    /**
-     * The default constructor.
-     */
     public GameBoard()
     {
         WIDTH = 800;
         HEIGHT = 500;
         MAX_INCORRECT = 8;
         MAX_PASSWORD_LENGTH = 10;
-        
-//         	The default directory for the sample images is images/ and the 
-//          default image type is .png; ensure this directory is
-//          created in the project folder if the sample images are used.
         
         HANGMAN_IMAGE_DIRECTORY = LETTER_IMAGE_DIRECTORY = "C:/Users/L/javaSE/gameProject/src/images/";
         HANGMAN_IMAGE_TYPE = LETTER_IMAGE_TYPE = ".png";
@@ -131,16 +66,10 @@ public class GameBoard extends JFrame
         setTitle("Phantom Hangman");
         setSize(WIDTH, HEIGHT);
     	setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      
-       
         
         initialize();
     }
     
-    /**
-     * Initializes all elements of the GameBoard that must be refreshed upon
-     * the start of a new game.
-     */
     private void initialize()
     {        
         numIncorrect = 0;
@@ -163,9 +92,6 @@ public class GameBoard extends JFrame
         setVisible(true);
     }
     
-    /**
-     * Prompts the user to confirm before quitting out of the window.
-     */
     private void addCloseWindowListener()
     {
         // NOTE: Must be DO_NOTHING_ON_CLOSE for prompt to function correctly
@@ -187,9 +113,6 @@ public class GameBoard extends JFrame
         });
     }
     
-    /**
-     * Adds the correct and incorrect labels to the top of the GameBoard
-     */
     private void addTextPanel()
     {
         JPanel textPanel = new JPanel();
@@ -201,10 +124,6 @@ public class GameBoard extends JFrame
         add(textPanel, BorderLayout.NORTH);
     }
     
-    /**
-     * Adds the LetterRack to the bottom of the GameBoard and attaches
-     * the LetterTile TileListeners to the LetterTiles.
-     */
     private void addLetterRack()
     {
         gameRack = new LetterRack(password, 
@@ -214,10 +133,6 @@ public class GameBoard extends JFrame
         add(gameRack, BorderLayout.SOUTH);
     }
     
-    /**
-     * Adds a panel that contains the hangman images to the middle of the
-     * GameBoard.
-     */
     private void addHangman()
     {
         JPanel hangmanPanel = new JPanel();
@@ -228,10 +143,6 @@ public class GameBoard extends JFrame
         add(hangmanPanel, BorderLayout.CENTER);
     }
     
-    /**
-     * Retrieves the password from the player, constrained by the length and
-     * content of the password.
-     */
     private void getPassword()
     {
         String[] options = {"Let's Play", "Quit"};
@@ -283,9 +194,6 @@ public class GameBoard extends JFrame
         correct.setText(correct.getText() + passwordHidden.toString());
     }
     
-    /**
-     * Prompts the user for a new game when one game ends.
-     */
     private void newGameDialog()
     {
         int dialogResult = JOptionPane.showConfirmDialog(null, 
@@ -299,10 +207,6 @@ public class GameBoard extends JFrame
             System.exit(0);
     }
     
-    /**
-     * A custom MouseListener for the LetterTiles that detects when the user
-     * "guesses" (clicks on) a LetterTile and updates the game accordingly.
-     */
     private class TileListener implements MouseListener 
     {
         @Override

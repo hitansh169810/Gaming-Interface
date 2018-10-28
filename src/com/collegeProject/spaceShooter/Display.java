@@ -30,7 +30,7 @@ public void createDisplay() {
 	frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//otherwise it will minimize on click 
 	canvas=new Canvas();
 	canvas.setPreferredSize(new Dimension(width,height));
-	canvas.setBackground(Color.cyan);
+	canvas.setBackground(Color.black);
 	canvas.setFocusable(false);
 	frame.add(canvas);
 	frame.pack();

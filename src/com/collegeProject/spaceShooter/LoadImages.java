@@ -11,7 +11,7 @@ public class LoadImages {
 	public static BufferedImage bullet;
 	public static BufferedImage enemy;
 	public static void init() {
-		image=imageLoader("10.png");
+		image=imageLoader("101.png");
 		enemy=imageLoader("greenbat.png");
 		player=imageLoader("player.png");
 		bullet=imageLoader("bullet.png");

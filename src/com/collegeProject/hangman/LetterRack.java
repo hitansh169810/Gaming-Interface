@@ -8,67 +8,29 @@ import java.util.Random;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-/**
- * 
- * @author Jeff A.
- */
 public class LetterRack extends JPanel
 {
-    /**
-     * The number of columns present in the letter tile rack.
-     */
     private final int RACK_COLS;
     
-    /**
-     * The number of columns present in the letter tile rack.
-     */
     private final int RACK_ROWS;
     
-    /**
-     * The layout of the letter rack.
-     */
     private final GridLayout LETTER_RACK_LAYOUT;
     
-    /**
-     * The capacity of the letter rack.
-     */
     private final int CAPACITY;
     
-    /**
-     * The directory containing the letter images.
-     */
     private final String IMAGE_DIRECTORY;
     
-    /**
-     * The type of image (.jpg, .png, etc. to include the period).
-     */
     private final String IMAGE_TYPE;
     
-    /**
-     * The password chosen to be guessed.
-     */
     private final String password;
     
-    /**
-     * An array of letters to be displayed on the GameBoard.
-     */
     private final ArrayList<LetterTile> rack;
     
-    /**
-     * The default constructor.
-     */
     public LetterRack()
     {
         this("password", "images/", ".png");
     }
     
-    /**
-     * Creates a new LetterRack given the password to be guessed, letter image
-     * directory, and letter image type
-     * @param inPassword The password to be guessed.
-     * @param imageDirectory The directory of the letter images.
-     * @param imageType The type of the letter images.
-     */
     public LetterRack(String inPassword, String imageDirectory, 
             String imageType)
     {
@@ -90,9 +52,6 @@ public class LetterRack extends JPanel
         loadRack();
     }
     
-    /**
-     * Builds and loads the letter rack with letter tiles.
-     */
     private void loadRack()
     {
         buildRack();
@@ -100,9 +59,6 @@ public class LetterRack extends JPanel
             add(tile);
     }
     
-    /**
-     * Builds a letter rack from a blend of the password and random letters.
-     */
     private void buildRack()
     {
         StringBuilder passwordBuilder = 
@@ -146,19 +102,12 @@ public class LetterRack extends JPanel
         }
     }
     
-    /**
-     * Add a TileListener to each LetterTile in the LetterRack
-     * @param l The TileListener to be added.
-     */
     public void attachListeners(MouseListener l)
     {
         for (LetterTile tile : rack)
             tile.addTileListener(l);
     }
     
-    /**
-     * Remove all TileListeners from all LetterTiles.
-     */
     public void removeListeners()
     {
         for (LetterTile tile : rack)
